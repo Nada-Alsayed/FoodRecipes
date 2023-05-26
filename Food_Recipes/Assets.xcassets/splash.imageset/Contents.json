@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "redcharlie-redcharlie1-t-7KEq9M0b0-unsplash 1.svg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
