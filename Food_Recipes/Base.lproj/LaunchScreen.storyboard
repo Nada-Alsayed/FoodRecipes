@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,56 +15,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="7gj-8U-uTO">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Picture" translatesAutoresizingMaskIntoConstraints="NO" id="HjM-w7-WdI">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3E-gk-xAQ">
-                                <rect key="frame" x="24" y="384" width="235" height="77"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="64"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipm-bW-AsI">
-                                <rect key="frame" x="51" y="307" width="147" height="77"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="64"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Easy To Make Food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4n-a6-m0Q">
-                                <rect key="frame" x="24" y="461" width="235" height="33"/>
+                                <rect key="frame" x="76" y="418" width="235" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="s4n-a6-m0Q" firstAttribute="trailing" secondItem="n3E-gk-xAQ" secondAttribute="trailing" id="23r-vK-s2o"/>
-                            <constraint firstItem="n3E-gk-xAQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="3VS-9Y-Hde"/>
-                            <constraint firstItem="Ipm-bW-AsI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="248" id="9lU-Rb-dIm"/>
-                            <constraint firstItem="Ipm-bW-AsI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="51" id="BzF-MA-lFE"/>
-                            <constraint firstAttribute="bottom" secondItem="7gj-8U-uTO" secondAttribute="bottom" id="JZl-us-Xfg"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ipm-bW-AsI" secondAttribute="trailing" constant="195" id="KU6-fs-ozl"/>
-                            <constraint firstItem="n3E-gk-xAQ" firstAttribute="top" secondItem="Ipm-bW-AsI" secondAttribute="bottom" id="N8i-xU-gO4"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="n3E-gk-xAQ" secondAttribute="trailing" constant="134" id="OJL-bp-O79"/>
-                            <constraint firstItem="7gj-8U-uTO" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Sll-ZR-ab2"/>
-                            <constraint firstItem="7gj-8U-uTO" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="TRM-eC-HMQ"/>
-                            <constraint firstAttribute="trailing" secondItem="7gj-8U-uTO" secondAttribute="trailing" id="dL3-vM-sbr"/>
-                            <constraint firstItem="s4n-a6-m0Q" firstAttribute="leading" secondItem="n3E-gk-xAQ" secondAttribute="leading" id="mvR-Ja-eDI"/>
-                            <constraint firstItem="s4n-a6-m0Q" firstAttribute="top" secondItem="n3E-gk-xAQ" secondAttribute="bottom" id="wrB-Cv-vqu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HjM-w7-WdI" secondAttribute="trailing" id="71r-6m-lQC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="s4n-a6-m0Q" secondAttribute="trailing" constant="82" id="8ch-yl-4d2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="s4n-a6-m0Q" secondAttribute="bottom" constant="367" id="9i2-Jc-Rx9"/>
+                            <constraint firstAttribute="bottom" secondItem="HjM-w7-WdI" secondAttribute="bottom" id="HvN-Yu-M3w"/>
+                            <constraint firstItem="HjM-w7-WdI" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="IkH-lq-b8d"/>
+                            <constraint firstItem="HjM-w7-WdI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Pih-2U-jca"/>
+                            <constraint firstItem="s4n-a6-m0Q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="359" id="qbI-am-WzA"/>
+                            <constraint firstItem="s4n-a6-m0Q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="76" id="x6H-RJ-NTD"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
+            <point key="canvasLocation" x="52.671755725190835" y="136.61971830985917"/>
         </scene>
     </scenes>
     <resources>
-        <image name="splash" width="428" height="926"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="Picture" width="428" height="926"/>
     </resources>
 </document>
