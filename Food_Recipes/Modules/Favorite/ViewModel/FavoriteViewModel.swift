@@ -13,27 +13,27 @@ class FavoriteViewModel {
     
     var bindResultToView : (()->()) = {}
     
-    var favArray:[Recipe]!
+    var favArray:[RecipeEntity]!
     
     init( coreData: RecipeCoreDataProtocol!) {
         self.coreData = coreData
     }
     
-    func getSoredFavs() -> [Recipe]{
+    func getSoredFavs() -> [RecipeEntity]{
         return coreData.getStoredRecipe()
     }
     
 
-    func deleteFavRecipe(recipe:Recipe){
+    func deleteFavRecipe(recipe:RecipeEntity){
         coreData.deleteFavRecipe(recipe: recipe)
     }
     
     
-    func insertFavRecipe(recipe:Recipe){
+    func insertFavRecipe(recipe:RecipeEntity){
         coreData.insertFavRecipe(recipeInserted: recipe)
     }
     
-    func isRecipeExist(recipe:Recipe)->Bool{
+    func isRecipeExist(recipe:RecipeEntity)->Bool{
         return coreData.isRecipeExist(recipe: recipe)
     }
     

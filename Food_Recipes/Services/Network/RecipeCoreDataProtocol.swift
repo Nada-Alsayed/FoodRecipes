@@ -9,8 +9,8 @@ import Foundation
 
 protocol RecipeCoreDataProtocol {
     
-    func insertFavRecipe(recipeInserted: Recipe)
-    func getStoredRecipe() -> [Recipe]
-    func deleteFavRecipe(recipe : Recipe)
-    func isRecipeExist(recipe : Recipe) -> Bool
+    func insertFavRecipe(recipeInserted: RecipeEntity)
+    func getStoredRecipe() -> [RecipeEntity]
+    func deleteFavRecipe(recipe : RecipeEntity)
+    func isRecipeExist(recipe : RecipeEntity) -> Bool
 }

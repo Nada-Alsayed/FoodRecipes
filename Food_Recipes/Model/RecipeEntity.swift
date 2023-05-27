@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Recipe{
+struct RecipeEntity{
     var criditName:String?
     var recipeImg:String?
     var recipeName:String?

@@ -11,7 +11,7 @@
 		044CDE852A2105540089F0FA /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CDE842A2105540089F0FA /* FavoriteVC.swift */; };
 		04765DBD2A20EB3900D8853A /* RecipeCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04765DBC2A20EB3900D8853A /* RecipeCoreData.swift */; };
 		04765DBF2A20EC6200D8853A /* RecipeCoreDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04765DBE2A20EC6200D8853A /* RecipeCoreDataProtocol.swift */; };
-		04765DC12A20EFE500D8853A /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04765DC02A20EFE500D8853A /* Recipe.swift */; };
+		04765DC12A20EFE500D8853A /* RecipeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04765DC02A20EFE500D8853A /* RecipeEntity.swift */; };
 		048466402A20A7CA009BFB3E /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484663E2A20A7CA009BFB3E /* CategoryCell.swift */; };
 		048466412A20A7CA009BFB3E /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0484663F2A20A7CA009BFB3E /* CategoryCell.xib */; };
 		048466452A20AD64009BFB3E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048466442A20AD64009BFB3E /* HomeVC.swift */; };
@@ -56,7 +56,7 @@
 		044CDE842A2105540089F0FA /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
 		04765DBC2A20EB3900D8853A /* RecipeCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeCoreData.swift; path = Food_Recipes/Services/Network/RecipeCoreData.swift; sourceTree = SOURCE_ROOT; };
 		04765DBE2A20EC6200D8853A /* RecipeCoreDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeCoreDataProtocol.swift; path = Food_Recipes/Services/Network/RecipeCoreDataProtocol.swift; sourceTree = SOURCE_ROOT; };
-		04765DC02A20EFE500D8853A /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		04765DC02A20EFE500D8853A /* RecipeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEntity.swift; sourceTree = "<group>"; };
 		0484663E2A20A7CA009BFB3E /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		0484663F2A20A7CA009BFB3E /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		048466442A20AD64009BFB3E /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -221,7 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				1F5A71BA2A20B0EC00CF8066 /* MyResult.swift */,
-				04765DC02A20EFE500D8853A /* Recipe.swift */,
+				04765DC02A20EFE500D8853A /* RecipeEntity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -550,7 +550,7 @@
 				1F5A71BB2A20B0EC00CF8066 /* MyResult.swift in Sources */,
 				04CE47E32A20DF4000700DB6 /* Utlites.swift in Sources */,
 				04C598082A20973A00712C46 /* Food_Recipes.xcdatamodeld in Sources */,
-				04765DC12A20EFE500D8853A /* Recipe.swift in Sources */,
+				04765DC12A20EFE500D8853A /* RecipeEntity.swift in Sources */,
 				1F5A71B92A20A50500CF8066 /* NetworkService.swift in Sources */,
 				044CDE832A2103090089F0FA /* FavoriteViewModel.swift in Sources */,
 				1F5A71B72A20A4F600CF8066 /* NetworkServiceProtocol.swift in Sources */,

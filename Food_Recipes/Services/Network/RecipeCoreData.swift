@@ -24,7 +24,7 @@ class RecipieCoreData:RecipeCoreDataProtocol{
     }
     
     
-    func insertFavRecipe(recipeInserted: Recipe) {
+    func insertFavRecipe(recipeInserted: RecipeEntity) {
         
         let entity = NSEntityDescription.entity(forEntityName: "FavReciepe", in: manager)
         let recipe = NSManagedObject(entity: entity ?? NSEntityDescription(), insertInto: manager)
@@ -44,8 +44,8 @@ class RecipieCoreData:RecipeCoreDataProtocol{
         }
     }
     
-    func getStoredRecipe() -> [Recipe] {
-        var recipes = [Recipe]()
+    func getStoredRecipe() -> [RecipeEntity] {
+        var recipes = [RecipeEntity]()
         let fetch = NSFetchRequest<NSManagedObject>(entityName: "FavReciepe")
 
         do{
@@ -55,7 +55,7 @@ class RecipieCoreData:RecipeCoreDataProtocol{
             }
 
             for i in recipesArr{
-                var myRecipe = Recipe()
+                var myRecipe = RecipeEntity()
                 myRecipe.recipeName = i.value(forKey: "recipeName") as? String
                 myRecipe.criditName = i.value(forKey: "criditName") as? String
                 myRecipe.showName = i.value(forKey: "showName") as? String
@@ -73,7 +73,7 @@ class RecipieCoreData:RecipeCoreDataProtocol{
         return recipes
     }
     
-    func deleteFavRecipe(recipe: Recipe) {
+    func deleteFavRecipe(recipe: RecipeEntity) {
         for i in recipesArr{
             if ((i.value(forKey: "recipeName") as! String) == recipe.recipeName){
 
@@ -97,7 +97,7 @@ class RecipieCoreData:RecipeCoreDataProtocol{
         }
     }
     
-    func isRecipeExist(recipe: Recipe) -> Bool {
+    func isRecipeExist(recipe:RecipeEntity) -> Bool {
         
         let fetch = NSFetchRequest<NSManagedObject>(entityName: "FavReciepe")
         let predicate = NSPredicate(format: "id == %i", recipe.id ?? 0)

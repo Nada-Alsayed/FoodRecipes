@@ -15,7 +15,7 @@ class FavoriteVC: UIViewController {
 
         // Do any additional setup after loading the view.
         favViewModel = FavoriteViewModel(coreData: RecipieCoreData.sharedInstance)
-        var favArr:[Recipe] = favViewModel?.getSoredFavs() ?? []
+        var favArr:[RecipeEntity] = favViewModel?.getSoredFavs() ?? []
         favLabel.text = favArr[0].recipeName
         //favLabel.text = "Eman"
     }
