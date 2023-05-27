@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0406B4A52A21140000833AF6 /* Mocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0406B4A42A21140000833AF6 /* Mocking.swift */; };
+		0406B4A72A21141800833AF6 /* FakeNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0406B4A62A21141800833AF6 /* FakeNetWork.swift */; };
 		04AAEF192A20E30F00965510 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04AAEF162A20E30F00965510 /* CategoryCell.xib */; };
 		04AAEF1A2A20E30F00965510 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAEF172A20E30F00965510 /* HomeVC.swift */; };
 		04AAEF1B2A20E30F00965510 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAEF182A20E30F00965510 /* CategoryCell.swift */; };
 		04AAEF1D2A20E4B000965510 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAEF1C2A20E4B000965510 /* ViewController.swift */; };
+		04AAEF202A20E6D000965510 /* CellRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAEF1E2A20E6D000965510 /* CellRecipe.swift */; };
+		04AAEF212A20E6D000965510 /* CellRecipe.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04AAEF1F2A20E6D000965510 /* CellRecipe.xib */; };
+		04AAEF282A20EADF00965510 /* ViewModelHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAEF272A20EADF00965510 /* ViewModelHome.swift */; };
 		04C597FE2A20973A00712C46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C597FD2A20973A00712C46 /* AppDelegate.swift */; };
 		04C598002A20973A00712C46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C597FF2A20973A00712C46 /* SceneDelegate.swift */; };
 		04C598052A20973A00712C46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C598032A20973A00712C46 /* Main.storyboard */; };
@@ -48,10 +53,15 @@
 
 /* Begin PBXFileReference section */
 		014B5857F81F784B528F4C3C /* Pods-Food_Recipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food_Recipes.release.xcconfig"; path = "Target Support Files/Pods-Food_Recipes/Pods-Food_Recipes.release.xcconfig"; sourceTree = "<group>"; };
+		0406B4A42A21140000833AF6 /* Mocking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocking.swift; sourceTree = "<group>"; };
+		0406B4A62A21141800833AF6 /* FakeNetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNetWork.swift; sourceTree = "<group>"; };
 		04AAEF162A20E30F00965510 /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryCell.xib; path = Views/CategoryCell.xib; sourceTree = SOURCE_ROOT; };
 		04AAEF172A20E30F00965510 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeVC.swift; path = Views/HomeVC.swift; sourceTree = SOURCE_ROOT; };
 		04AAEF182A20E30F00965510 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryCell.swift; path = Views/CategoryCell.swift; sourceTree = SOURCE_ROOT; };
 		04AAEF1C2A20E4B000965510 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		04AAEF1E2A20E6D000965510 /* CellRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CellRecipe.swift; path = Views/CellRecipe.swift; sourceTree = SOURCE_ROOT; };
+		04AAEF1F2A20E6D000965510 /* CellRecipe.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CellRecipe.xib; path = Views/CellRecipe.xib; sourceTree = SOURCE_ROOT; };
+		04AAEF272A20EADF00965510 /* ViewModelHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelHome.swift; sourceTree = "<group>"; };
 		04C597FA2A20973A00712C46 /* Food_Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Food_Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C597FD2A20973A00712C46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C597FF2A20973A00712C46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +117,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04AAEF262A20EAC700965510 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				04AAEF272A20EADF00965510 /* ViewModelHome.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		04C597F12A20973A00712C46 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				04C598172A20973C00712C46 /* Food_RecipesTests.swift */,
+				0406B4A42A21140000833AF6 /* Mocking.swift */,
+				0406B4A62A21141800833AF6 /* FakeNetWork.swift */,
 			);
 			path = Food_RecipesTests;
 			sourceTree = "<group>";
@@ -184,7 +204,6 @@
 		1F5A71B32A20A41600CF8066 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				1F5A71B52A20A4D900CF8066 /* Local */,
 				1F5A71B42A20A42100CF8066 /* Network */,
 			);
 			path = Services;
@@ -199,13 +218,6 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		1F5A71B52A20A4D900CF8066 /* Local */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Local;
-			sourceTree = "<group>";
-		};
 		1F5A71BC2A20D09200CF8066 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,7 +229,7 @@
 		1F5A71BD2A20D1F600CF8066 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				1F5A71BF2A20D20E00CF8066 /* ViewModels */,
+				04AAEF262A20EAC700965510 /* ViewModel */,
 				1F5A71BE2A20D20500CF8066 /* Views */,
 			);
 			path = Home;
@@ -229,15 +241,10 @@
 				04AAEF182A20E30F00965510 /* CategoryCell.swift */,
 				04AAEF162A20E30F00965510 /* CategoryCell.xib */,
 				04AAEF172A20E30F00965510 /* HomeVC.swift */,
+				04AAEF1E2A20E6D000965510 /* CellRecipe.swift */,
+				04AAEF1F2A20E6D000965510 /* CellRecipe.xib */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		1F5A71BF2A20D20E00CF8066 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		3E1255671C7BDF3795255512 /* Frameworks */ = {
@@ -373,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04AAEF192A20E30F00965510 /* CategoryCell.xib in Resources */,
+				04AAEF212A20E6D000965510 /* CellRecipe.xib in Resources */,
 				04C5980D2A20973C00712C46 /* LaunchScreen.storyboard in Resources */,
 				04C5980A2A20973C00712C46 /* Assets.xcassets in Resources */,
 				04C598052A20973A00712C46 /* Main.storyboard in Resources */,
@@ -506,9 +514,11 @@
 				04C597FE2A20973A00712C46 /* AppDelegate.swift in Sources */,
 				04C598002A20973A00712C46 /* SceneDelegate.swift in Sources */,
 				04C598082A20973A00712C46 /* Food_Recipes.xcdatamodeld in Sources */,
+				04AAEF202A20E6D000965510 /* CellRecipe.swift in Sources */,
 				1F5A71BB2A20B0EC00CF8066 /* MyResult.swift in Sources */,
 				04AAEF1D2A20E4B000965510 /* ViewController.swift in Sources */,
 				04CE47E32A20DF4000700DB6 /* Utlites.swift in Sources */,
+				04AAEF282A20EADF00965510 /* ViewModelHome.swift in Sources */,
 				04C598082A20973A00712C46 /* Food_Recipes.xcdatamodeld in Sources */,
 				1F5A71B92A20A50500CF8066 /* NetworkService.swift in Sources */,
 				04AAEF1A2A20E30F00965510 /* HomeVC.swift in Sources */,
@@ -521,6 +531,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0406B4A52A21140000833AF6 /* Mocking.swift in Sources */,
+				0406B4A72A21141800833AF6 /* FakeNetWork.swift in Sources */,
 				04C598182A20973C00712C46 /* Food_RecipesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class NetworkerService{
+class NetworkerService :NetworkServiceProtocol{
     
 //    let headers = [
 //        "X-RapidAPI-Key": "82ebfc0d39mshe9944f193412711p1185dejsn8af599cc676c",
@@ -25,12 +25,13 @@ class NetworkerService{
         print("CallingURL",url)
         
         AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers, interceptor: nil).response { response in
+         //   print(response)
             switch response.result{
             case .success(let data):
               do{
                   let jsonData = try JSONDecoder().decode(T.self, from: data!)
                   complition(jsonData,nil)
-               //   debugPrint(jsonData)
+                  debugPrint(jsonData)
              } catch {
                 print(error.localizedDescription)
              }
