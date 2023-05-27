@@ -27,7 +27,7 @@ class RecipieCoreData:RecipeCoreDataProtocol{
     func insertFavRecipe(recipeInserted: Recipe) {
         
         let entity = NSEntityDescription.entity(forEntityName: "FavReciepe", in: manager)
-        let recipe = NSManagedObject(entity: entity!, insertInto: manager)
+        let recipe = NSManagedObject(entity: entity ?? NSEntityDescription(), insertInto: manager)
         recipe.setValue(recipeInserted.recipeName, forKey: "recipeName")
         recipe.setValue(recipeInserted.showName, forKey: "showName")
         recipe.setValue(recipeInserted.criditName, forKey: "criditName")
@@ -82,7 +82,8 @@ class RecipieCoreData:RecipeCoreDataProtocol{
         }
 
         guard let recipe1 = recipeToBeDeleted else{
-            print("cannot be deleted!")
+          //  print("cannot be deleted!")
+          //  showToast(message: "cannot be deleted!", font: .systemFont(ofSize: 12.0))
             return
         }
         manager.delete(recipe1)
