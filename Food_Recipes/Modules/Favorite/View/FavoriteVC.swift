@@ -34,13 +34,13 @@ import Reachability
 
     override func viewWillAppear(_ animated: Bool) {
 
-       if(favViewModel?.getSoredFavs() != nil){
+        if(favViewModel?.getSoredFavs().count != 0){
             favArr = favViewModel?.getSoredFavs() ?? []
             tableView.reloadData()
             noRecipeImg.isHidden = true
         }else{
             noRecipeImg.isHidden = false
-            noRecipeImg.image = UIImage(named: "no favourite place holder")
+            noRecipeImg.image = UIImage(named:"no favourite place holder")
         }
      }
      
@@ -90,6 +90,13 @@ extension FavoriteVC : UITableViewDelegate,UITableViewDataSource{
                 self.favViewModel?.deleteFavRecipe(recipe: self.favArr[indexPath.row])
                 self.favViewModel?.getSoredFavs()
                 self.favArr.remove(at: indexPath.row)
+                if self.favArr.count == 0{
+                    self.noRecipeImg.isHidden = false
+                    self.noRecipeImg.image = UIImage(named:"no favourite place holder")
+                }else{
+                    self.noRecipeImg.isHidden = true
+                }
+
                 tableView.reloadData()
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))

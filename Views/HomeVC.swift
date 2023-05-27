@@ -45,6 +45,7 @@ class HomeVC: UIViewController {
         collectionView.setCollectionViewLayout(layout, animated: true)
     }
     
+  
     func callAPIToGetData (category:String){
         inidicator.isHidden = false
         inidicator.startAnimating()
