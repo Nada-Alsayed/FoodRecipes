@@ -35,10 +35,10 @@ class Reciepe: Codable {
 
     enum CodingKeys: String, CodingKey {
         case show, sections, tags, credits
-        case videoURL
+        case videoURL = "video_url"
         case name
-        case thumbnailURL
-        case numServings
+        case thumbnailURL = "thumbnail_url"
+        case numServings = "num_servings"
         case instructions, yields
         case originalVideoURL
         case id
