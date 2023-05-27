@@ -23,6 +23,8 @@
 		1F5A71B72A20A4F600CF8066 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5A71B62A20A4F600CF8066 /* NetworkServiceProtocol.swift */; };
 		1F5A71B92A20A50500CF8066 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5A71B82A20A50500CF8066 /* NetworkService.swift */; };
 		1F5A71BB2A20B0EC00CF8066 /* MyResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5A71BA2A20B0EC00CF8066 /* MyResult.swift */; };
+		1F97F7E72A21EA2400DE3C53 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F97F7E62A21EA2400DE3C53 /* DetailsVC.swift */; };
+		1F97F7E92A21EA3600DE3C53 /* DetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F97F7E82A21EA3600DE3C53 /* DetailsVM.swift */; };
 		748CD6111D16AB8415472541 /* Pods_Food_RecipesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4D83C4B6BD9F08ABF0269E /* Pods_Food_RecipesTests.framework */; };
 		DF68E79F959D098F1BB0C113 /* Pods_Food_Recipes_Food_RecipesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC0A21C05A760B225F22A18 /* Pods_Food_Recipes_Food_RecipesUITests.framework */; };
 		FF956D3D1C79111D772254CF /* Pods_Food_Recipes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2ADEB98DAD17CE007A61F83 /* Pods_Food_Recipes.framework */; };
@@ -69,6 +71,8 @@
 		1F5A71B62A20A4F600CF8066 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		1F5A71B82A20A50500CF8066 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		1F5A71BA2A20B0EC00CF8066 /* MyResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyResult.swift; sourceTree = "<group>"; };
+		1F97F7E62A21EA2400DE3C53 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
+		1F97F7E82A21EA3600DE3C53 /* DetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVM.swift; sourceTree = "<group>"; };
 		4B42D4122292E7FCF71713D7 /* Pods-Food_RecipesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food_RecipesTests.debug.xcconfig"; path = "Target Support Files/Pods-Food_RecipesTests/Pods-Food_RecipesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		624C2425D9524F1D4D618C04 /* Pods-Food_Recipes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food_Recipes.debug.xcconfig"; path = "Target Support Files/Pods-Food_Recipes/Pods-Food_Recipes.debug.xcconfig"; sourceTree = "<group>"; };
 		906D01914C8DFB491FA306FD /* Pods-Food_Recipes-Food_RecipesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food_Recipes-Food_RecipesUITests.release.xcconfig"; path = "Target Support Files/Pods-Food_Recipes-Food_RecipesUITests/Pods-Food_Recipes-Food_RecipesUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 		1F5A71BC2A20D09200CF8066 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				1F97F7E32A21E9C100DE3C53 /* Details */,
 				1F5A71BD2A20D1F600CF8066 /* Home */,
 			);
 			path = Modules;
@@ -235,6 +240,31 @@
 			children = (
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1F97F7E32A21E9C100DE3C53 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				1F97F7E52A21E9D400DE3C53 /* Views */,
+				1F97F7E42A21E9CB00DE3C53 /* ViewModels */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		1F97F7E42A21E9CB00DE3C53 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1F97F7E82A21EA3600DE3C53 /* DetailsVM.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1F97F7E52A21E9D400DE3C53 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1F97F7E62A21EA2400DE3C53 /* DetailsVC.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		3E1255671C7BDF3795255512 /* Frameworks */ = {
@@ -510,6 +540,8 @@
 				04C598082A20973A00712C46 /* Food_Recipes.xcdatamodeld in Sources */,
 				1F5A71B92A20A50500CF8066 /* NetworkService.swift in Sources */,
 				1F5A71B72A20A4F600CF8066 /* NetworkServiceProtocol.swift in Sources */,
+				1F97F7E72A21EA2400DE3C53 /* DetailsVC.swift in Sources */,
+				1F97F7E92A21EA3600DE3C53 /* DetailsVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
