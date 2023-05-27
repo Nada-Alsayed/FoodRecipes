@@ -58,6 +58,7 @@ class Reciepe: Codable {
         self.originalVideoURL = originalVideoURL
         self.id = id
     }
+
 }
 
 // MARK: - Credit

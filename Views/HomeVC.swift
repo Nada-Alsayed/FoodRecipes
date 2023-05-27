@@ -11,8 +11,9 @@ import Kingfisher
 class HomeVC: UIViewController {
     
     var viewModel = HomeViewModel(apiFetchHandler: NetworkerService())
+    var favViewModel = FavoriteViewModel(coreData: RecipieCoreData.sharedInstance)
     var arrayOfReciebes = [Reciepe]()
-    
+    var recipeEntity = RecipeEntity()
     @IBOutlet weak var myTable: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var inidicator: UIActivityIndicatorView!
@@ -64,6 +65,8 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource ,UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellRecipe", for: indexPath) as!CellRecipe
+       
+       // myRecipe = arrayOfReciebes[indexPath.row]
         cell.imgBG.layer.cornerRadius = 9
         cell.imgBG?.kf.setImage(with:URL(string: arrayOfReciebes[indexPath.row].thumbnailURL ?? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB3yIFU8Dx5iqV6fxsmrxvzkDYbgQaxIp19SRyR9DQ&s") )
         
@@ -72,10 +75,40 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource ,UITableV
         cell.labelChefName.text = "\(arrayOfReciebes[indexPath.row].credits?[0].name ?? "")"
         cell.labelPike.text = arrayOfReciebes[indexPath.row].show?.name
         cell.labelServings.text = arrayOfReciebes[indexPath.row].yields ?? "Servings:0"
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
+        cell.imgLike.tag = indexPath.row
+        cell.imgLike.isUserInteractionEnabled = true
+        cell.imgLike.addGestureRecognizer(tapGesture)
+        cell.cellReciepe = arrayOfReciebes[indexPath.row]
         return cell
 
     }
-    
+    @objc func imageTapped(_ sender : UITapGestureRecognizer ) {
+        print("Image tapped!")
+        if let favoritedCellImage = sender.view as? UIImageView {
+            if let selectedCell = favoritedCellImage.superview?.superview as? CellRecipe{
+                  recipeEntity = RecipeEntity(criditName: selectedCell.cellReciepe.credits?[0].name ,recipeImg: selectedCell.cellReciepe.thumbnailURL,recipeName: selectedCell.cellReciepe.name,recipeUrl: selectedCell.cellReciepe.videoURL,showName: selectedCell.cellReciepe.show?.name,yeild: selectedCell.cellReciepe.yields,id: selectedCell.cellReciepe.id)
+                 
+                if(favViewModel.isRecipeExist(recipe: recipeEntity) == true)
+                {
+                    let alert = UIAlertController(title: "Alert", message: "This Item already Saved", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    present(alert, animated: true, completion: nil)
+                    print("Already saved")
+                    
+                }else{
+                    favViewModel.insertFavRecipe(recipe: recipeEntity)
+                   // heartBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                }
+                
+               
+                
+            }
+        }
+        
+     
+    }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }

@@ -16,7 +16,7 @@ class NetworkerService :NetworkServiceProtocol{
 //    ]
     
     let headers: HTTPHeaders = [
-        "X-RapidAPI-Key": "82ebfc0d39mshe9944f193412711p1185dejsn8af599cc676c",
+        "X-RapidAPI-Key": "1d718779b5msh8297d4af6898039p1a9457jsned6bc2a79e8b",
         "X-RapidAPI-Host": "tasty.p.rapidapi.com"
             ]
     
