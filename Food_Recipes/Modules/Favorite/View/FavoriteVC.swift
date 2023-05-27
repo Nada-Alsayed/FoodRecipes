@@ -70,7 +70,7 @@ extension FavoriteVC : UITableViewDelegate,UITableViewDataSource{
         cell.imgBG.layer.cornerRadius = 9
         cell.imgBG?.kf.setImage(with:URL(string: favArr[indexPath.row].recipeImg ?? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB3yIFU8Dx5iqV6fxsmrxvzkDYbgQaxIp19SRyR9DQ&s") )
         
-        cell.imgLike.image = UIImage(named: "imgLike")
+        cell.imgLike.image = UIImage(named: "like-2")
         cell.labelRecipeName.text = favArr[indexPath.row].recipeName
         cell.labelChefName.text = "\(favArr[indexPath.row].criditName ?? "")"
         cell.labelPike.text = favArr[indexPath.row].showName

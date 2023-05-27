@@ -48,21 +48,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Food Recipes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3T-1b-LnK">
-                                <rect key="frame" x="16" y="104" width="361" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Recipes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3T-1b-LnK">
+                                <rect key="frame" x="16" y="103" width="361" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nO6-Wa-HWI">
-                                <rect key="frame" x="0.0" y="175" width="393" height="142"/>
+                                <rect key="frame" x="0.0" y="172" width="393" height="97"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="142" id="I0S-Jq-bJU"/>
+                                    <constraint firstAttribute="height" constant="97" id="xVi-6z-4k2"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rEB-PC-4Gm">
-                                    <size key="itemSize" width="130" height="50"/>
+                                    <size key="itemSize" width="130" height="30"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -86,7 +85,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7Vc-gs-Lqy">
-                                <rect key="frame" x="0.0" y="319" width="393" height="450"/>
+                                <rect key="frame" x="3" y="269" width="387" height="500"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ZlK-Z8-Nen" id="4rw-gM-MWh"/>
@@ -101,19 +100,20 @@
                         <viewLayoutGuide key="safeArea" id="Atl-BO-s0V"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="nO6-Wa-HWI" firstAttribute="trailing" secondItem="7Vc-gs-Lqy" secondAttribute="trailing" id="4K8-dZ-X2T"/>
-                            <constraint firstItem="nO6-Wa-HWI" firstAttribute="top" secondItem="Sfm-jV-bkC" secondAttribute="bottom" constant="3" id="53E-mT-SQI"/>
-                            <constraint firstItem="7Vc-gs-Lqy" firstAttribute="top" secondItem="nO6-Wa-HWI" secondAttribute="bottom" constant="2" id="ADV-tm-xjy"/>
-                            <constraint firstItem="nO6-Wa-HWI" firstAttribute="leading" secondItem="Atl-BO-s0V" secondAttribute="leading" id="Ky2-Jm-F5a"/>
-                            <constraint firstItem="7Vc-gs-Lqy" firstAttribute="bottom" secondItem="Atl-BO-s0V" secondAttribute="bottom" id="Qcu-5W-HkE"/>
-                            <constraint firstItem="7Vc-gs-Lqy" firstAttribute="top" secondItem="nO6-Wa-HWI" secondAttribute="bottom" constant="2" id="S7x-II-Gkd"/>
+                            <constraint firstItem="k3T-1b-LnK" firstAttribute="top" secondItem="Atl-BO-s0V" secondAttribute="top" id="4eo-Xa-fw1"/>
+                            <constraint firstItem="Atl-BO-s0V" firstAttribute="trailing" secondItem="k3T-1b-LnK" secondAttribute="trailing" constant="16" id="6PK-PJ-zb0"/>
+                            <constraint firstItem="nO6-Wa-HWI" firstAttribute="leading" secondItem="Atl-BO-s0V" secondAttribute="leading" id="GBs-Sk-iZb"/>
+                            <constraint firstItem="nO6-Wa-HWI" firstAttribute="trailing" secondItem="Atl-BO-s0V" secondAttribute="trailing" id="Knk-GH-2Mr"/>
+                            <constraint firstItem="7Vc-gs-Lqy" firstAttribute="bottom" secondItem="Atl-BO-s0V" secondAttribute="bottom" id="PGP-fe-Ndw"/>
+                            <constraint firstItem="k3T-1b-LnK" firstAttribute="leading" secondItem="Atl-BO-s0V" secondAttribute="leading" constant="16" id="QP9-6a-EQp"/>
+                            <constraint firstItem="7Vc-gs-Lqy" firstAttribute="leading" secondItem="Atl-BO-s0V" secondAttribute="leading" constant="3" id="YYN-m9-Ojx"/>
+                            <constraint firstItem="Atl-BO-s0V" firstAttribute="trailing" secondItem="7Vc-gs-Lqy" secondAttribute="trailing" constant="3" id="ahg-ug-HXL"/>
                             <constraint firstItem="Sfm-jV-bkC" firstAttribute="leading" secondItem="Atl-BO-s0V" secondAttribute="leading" constant="16" id="c6e-2I-uSz"/>
                             <constraint firstItem="Sfm-jV-bkC" firstAttribute="top" secondItem="Atl-BO-s0V" secondAttribute="top" constant="42" id="cd1-1G-PHQ"/>
+                            <constraint firstItem="nO6-Wa-HWI" firstAttribute="top" secondItem="Sfm-jV-bkC" secondAttribute="bottom" id="i3K-5B-QD6"/>
                             <constraint firstItem="pHK-Gh-XH4" firstAttribute="centerY" secondItem="put-8V-YDg" secondAttribute="centerY" id="jbO-gY-gds"/>
-                            <constraint firstItem="nO6-Wa-HWI" firstAttribute="trailing" secondItem="Atl-BO-s0V" secondAttribute="trailing" id="l29-eN-4n3"/>
-                            <constraint firstItem="nO6-Wa-HWI" firstAttribute="leading" secondItem="7Vc-gs-Lqy" secondAttribute="leading" id="o8q-mq-bYb"/>
+                            <constraint firstItem="7Vc-gs-Lqy" firstAttribute="top" secondItem="nO6-Wa-HWI" secondAttribute="bottom" id="nIF-tn-ZOC"/>
                             <constraint firstItem="pHK-Gh-XH4" firstAttribute="centerX" secondItem="put-8V-YDg" secondAttribute="centerX" id="pYD-Qz-HkC"/>
-                            <constraint firstItem="nO6-Wa-HWI" firstAttribute="top" secondItem="Sfm-jV-bkC" secondAttribute="bottom" constant="3" id="po4-2g-rHS"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Home" id="JXU-Oa-m7q">

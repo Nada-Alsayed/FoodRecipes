@@ -17,14 +17,14 @@ class HomeVC: UIViewController {
     @IBOutlet weak var myTable: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var inidicator: UIActivityIndicatorView!
-  
+     var isInitialBool = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        isInitialBool = true
         collectionView.delegate = self
         collectionView.dataSource = self
         Utlites.registerCell(collectionView:collectionView)
         inidicator.startAnimating()
-        
         viewModel.bindResultToView = { [weak self]  in
             DispatchQueue.main.async {
                 self?.arrayOfReciebes = self?.viewModel.res.results ?? []
@@ -54,7 +54,8 @@ class HomeVC: UIViewController {
 
 }
 
-extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource ,UITableViewDelegate,UITableViewDataSource {
+extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource ,UITableViewDelegate,UITableViewDataSource  {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayOfReciebes.count
     }
@@ -67,7 +68,7 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource ,UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellRecipe", for: indexPath) as!CellRecipe
        
        // myRecipe = arrayOfReciebes[indexPath.row]
-        cell.imgBG.layer.cornerRadius = 9
+        cell.imgBG.layer.cornerRadius = 10
         cell.imgBG?.kf.setImage(with:URL(string: arrayOfReciebes[indexPath.row].thumbnailURL ?? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB3yIFU8Dx5iqV6fxsmrxvzkDYbgQaxIp19SRyR9DQ&s") )
         
         cell.imgLike.image = UIImage(named: "imgLike")
@@ -99,7 +100,7 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource ,UITableV
                     
                 }else{
                     favViewModel.insertFavRecipe(recipe: recipeEntity)
-                   // heartBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                    selectedCell.imgLike.image = UIImage(named: "like-2")
                 }
                 
                
@@ -120,11 +121,15 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource ,UITableV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
-        cell.cellBg.backgroundColor = UIColor(red: 0, green: 0, blue: 0,alpha: 0.04)
-        cell.cellBg.layer.cornerRadius = 9
+        cell.cellBg.layer.cornerRadius = 15
         cell.cellName.text = viewModel.categoryNames[indexPath.row]
         cell.cellImage.image = UIImage(named: viewModel.categoryImages[indexPath.row])
-             
+        
+        if isInitialBool && indexPath.row == 0{
+            cell.img.image = UIImage(named: "clicked")
+            isInitialBool = false
+        }
+        
         return cell
     }
     
@@ -132,20 +137,33 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource ,UITableV
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryCell
         let category = viewModel.categoryImages[indexPath.row]
        // cell.cellBg.backgroundColor = UIColor(red: 217, green: 150, blue: 81, alpha: 1)
-        cell.cellBg.backgroundColor = UIColor.green
+       
+        cell.img.image = UIImage(named: "clicked")
         callAPIToGetData(category: category)
+        if indexPath.row != 0 {
+            let myindex : IndexPath = IndexPath(row: 0, section: indexPath.section)
+            let firstcell = collectionView.cellForItem(at: myindex) as! CategoryCell
+            firstcell.img.image = UIImage(named: "idel")
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 10) // Adjust the height as per your requirements
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryCell
-        cell.cellBg.backgroundColor = UIColor(red: 0, green: 0, blue: 0,alpha: 0.04)
+        cell.img.image = UIImage(named: "idel")
+    
     }
+    
+  
     
     func drawTopSection() -> NSCollectionLayoutSection{
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.2), heightDimension: .absolute(152))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.2), heightDimension: .absolute(80))
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
             
             group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing:8)
