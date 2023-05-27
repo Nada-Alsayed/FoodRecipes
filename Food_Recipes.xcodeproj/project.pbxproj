@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0406B4A52A21140000833AF6 /* Mocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0406B4A42A21140000833AF6 /* Mocking.swift */; };
 		0406B4A72A21141800833AF6 /* FakeNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0406B4A62A21141800833AF6 /* FakeNetWork.swift */; };
+		047BC62B2A224499009530DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 047BC62A2A224499009530DC /* Assets.xcassets */; };
 		04AAEF192A20E30F00965510 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04AAEF162A20E30F00965510 /* CategoryCell.xib */; };
 		04AAEF1A2A20E30F00965510 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAEF172A20E30F00965510 /* HomeVC.swift */; };
 		04AAEF1B2A20E30F00965510 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAEF182A20E30F00965510 /* CategoryCell.swift */; };
@@ -20,7 +21,6 @@
 		04C598002A20973A00712C46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C597FF2A20973A00712C46 /* SceneDelegate.swift */; };
 		04C598052A20973A00712C46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C598032A20973A00712C46 /* Main.storyboard */; };
 		04C598082A20973A00712C46 /* Food_Recipes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04C598062A20973A00712C46 /* Food_Recipes.xcdatamodeld */; };
-		04C5980A2A20973C00712C46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C598092A20973C00712C46 /* Assets.xcassets */; };
 		04C5980D2A20973C00712C46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C5980B2A20973C00712C46 /* LaunchScreen.storyboard */; };
 		04C598182A20973C00712C46 /* Food_RecipesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C598172A20973C00712C46 /* Food_RecipesTests.swift */; };
 		04C598222A20973C00712C46 /* Food_RecipesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C598212A20973C00712C46 /* Food_RecipesUITests.swift */; };
@@ -60,6 +60,7 @@
 		014B5857F81F784B528F4C3C /* Pods-Food_Recipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food_Recipes.release.xcconfig"; path = "Target Support Files/Pods-Food_Recipes/Pods-Food_Recipes.release.xcconfig"; sourceTree = "<group>"; };
 		0406B4A42A21140000833AF6 /* Mocking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocking.swift; sourceTree = "<group>"; };
 		0406B4A62A21141800833AF6 /* FakeNetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNetWork.swift; sourceTree = "<group>"; };
+		047BC62A2A224499009530DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04AAEF162A20E30F00965510 /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CategoryCell.xib; path = Food_Recipes/Modules/Home/Views/Food_Recipes/Modules/Home/Views/CategoryCell/CategoryCell.xib; sourceTree = SOURCE_ROOT; };
 		04AAEF172A20E30F00965510 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeVC.swift; path = Views/HomeVC.swift; sourceTree = SOURCE_ROOT; };
 		04AAEF182A20E30F00965510 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryCell.swift; path = Food_Recipes/Modules/Home/Views/Food_Recipes/Modules/Home/Views/CategoryCell/CategoryCell.swift; sourceTree = SOURCE_ROOT; };
@@ -72,7 +73,6 @@
 		04C597FF2A20973A00712C46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		04C598042A20973A00712C46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04C598072A20973A00712C46 /* Food_Recipes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Food_Recipes.xcdatamodel; sourceTree = "<group>"; };
-		04C598092A20973C00712C46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04C5980C2A20973C00712C46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04C5980E2A20973C00712C46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04C598132A20973C00712C46 /* Food_RecipesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Food_RecipesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +160,7 @@
 		04C597FC2A20973A00712C46 /* Food_Recipes */ = {
 			isa = PBXGroup;
 			children = (
+				047BC62A2A224499009530DC /* Assets.xcassets */,
 				04CE47E12A20DF4000700DB6 /* Utlites */,
 				1F5A71BC2A20D09200CF8066 /* Modules */,
 				1F5A71B32A20A41600CF8066 /* Services */,
@@ -167,7 +168,6 @@
 				04C597FD2A20973A00712C46 /* AppDelegate.swift */,
 				04C597FF2A20973A00712C46 /* SceneDelegate.swift */,
 				04C598032A20973A00712C46 /* Main.storyboard */,
-				04C598092A20973C00712C46 /* Assets.xcassets */,
 				04C5980B2A20973C00712C46 /* LaunchScreen.storyboard */,
 				04C5980E2A20973C00712C46 /* Info.plist */,
 				04C598062A20973A00712C46 /* Food_Recipes.xcdatamodeld */,
@@ -446,8 +446,8 @@
 				04AAEF192A20E30F00965510 /* CategoryCell.xib in Resources */,
 				04AAEF212A20E6D000965510 /* CellRecipe.xib in Resources */,
 				04C5980D2A20973C00712C46 /* LaunchScreen.storyboard in Resources */,
-				04C5980A2A20973C00712C46 /* Assets.xcassets in Resources */,
 				04C598052A20973A00712C46 /* Main.storyboard in Resources */,
+				047BC62B2A224499009530DC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

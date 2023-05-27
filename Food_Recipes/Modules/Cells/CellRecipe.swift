@@ -23,7 +23,8 @@ class CellRecipe: UITableViewCell {
     
   
     @IBOutlet weak var imgBG: UIImageView!
-    
+   
+    var cellReciepe : Reciepe!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -64,5 +65,6 @@ class CellRecipe: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     
 }

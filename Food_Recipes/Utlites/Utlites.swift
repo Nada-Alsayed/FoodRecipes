@@ -24,5 +24,9 @@ class Utlites {
         return UIColor(red:red, green:green, blue:blue, alpha:CGFloat(alpha))
     }
     
+    func registerTableCell(tableView:UITableView){
+        
+        tableView.register(UINib(nibName: "CellRecipe", bundle: nil), forCellReuseIdentifier: "CellRecipe")
+    }
     
 }
