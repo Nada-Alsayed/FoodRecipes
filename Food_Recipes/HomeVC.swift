@@ -11,7 +11,7 @@ import SwiftUI
 class HomeVC: UIViewController {
     var categoryNames = ["Popular","Breakfast","Launch","Dinner","Dessert"]
     var categoryImages = ["fire","breakfast","launch","dinner","cake"]
-    
+    var favViewModel:FavoriteViewModel?
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -21,6 +21,9 @@ class HomeVC: UIViewController {
         collectionView.dataSource = self
         Utlites.registerCell(collectionView:collectionView)
         // Do any additional setup after loading the view.
+        
+        favViewModel = FavoriteViewModel(coreData: RecipieCoreData.sharedInstance)
+
         
         let layout = UICollectionViewCompositionalLayout{ index , environment in
             
@@ -62,6 +65,21 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource{
         let cell = collectionView.cellForItem(at: indexPath) as! CategoryCell
        // cell.cellBg.backgroundColor = UIColor(red: 217, green: 150, blue: 81, alpha: 1)
         cell.cellBg.backgroundColor = UIColor.green
+        
+        var fav = RecipeEntity(criditName: "Eman", recipeImg: "", recipeName: "Checken", recipeUrl: "rr", showName: "tt", yeild: "oo", id: 5)
+        
+        if(indexPath.row == 1){
+        favViewModel?.insertFavRecipe(recipe: fav)
+        // print("Hi")
+        }
+        else{
+         //   print("bye")
+            favViewModel?.deleteFavRecipe(recipe: fav)
+            
+        }
+        print(favViewModel?.isRecipeExist(recipe: fav))
+     //   print( favViewModel?.getSoredFavs())
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

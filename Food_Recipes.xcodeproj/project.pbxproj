@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		044CDE832A2103090089F0FA /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CDE822A2103090089F0FA /* FavoriteViewModel.swift */; };
+		044CDE852A2105540089F0FA /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CDE842A2105540089F0FA /* FavoriteVC.swift */; };
+		04765DBD2A20EB3900D8853A /* RecipeCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04765DBC2A20EB3900D8853A /* RecipeCoreData.swift */; };
+		04765DBF2A20EC6200D8853A /* RecipeCoreDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04765DBE2A20EC6200D8853A /* RecipeCoreDataProtocol.swift */; };
+		04765DC12A20EFE500D8853A /* RecipeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04765DC02A20EFE500D8853A /* RecipeEntity.swift */; };
 		048466402A20A7CA009BFB3E /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484663E2A20A7CA009BFB3E /* CategoryCell.swift */; };
 		048466412A20A7CA009BFB3E /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0484663F2A20A7CA009BFB3E /* CategoryCell.xib */; };
 		048466452A20AD64009BFB3E /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048466442A20AD64009BFB3E /* HomeVC.swift */; };
@@ -47,6 +52,11 @@
 
 /* Begin PBXFileReference section */
 		014B5857F81F784B528F4C3C /* Pods-Food_Recipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food_Recipes.release.xcconfig"; path = "Target Support Files/Pods-Food_Recipes/Pods-Food_Recipes.release.xcconfig"; sourceTree = "<group>"; };
+		044CDE822A2103090089F0FA /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
+		044CDE842A2105540089F0FA /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
+		04765DBC2A20EB3900D8853A /* RecipeCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeCoreData.swift; path = Food_Recipes/Services/Network/RecipeCoreData.swift; sourceTree = SOURCE_ROOT; };
+		04765DBE2A20EC6200D8853A /* RecipeCoreDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeCoreDataProtocol.swift; path = Food_Recipes/Services/Network/RecipeCoreDataProtocol.swift; sourceTree = SOURCE_ROOT; };
+		04765DC02A20EFE500D8853A /* RecipeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEntity.swift; sourceTree = "<group>"; };
 		0484663E2A20A7CA009BFB3E /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		0484663F2A20A7CA009BFB3E /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		048466442A20AD64009BFB3E /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -105,6 +115,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		044CDE7F2A2102D40089F0FA /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				044CDE812A2102E90089F0FA /* ViewModel */,
+				044CDE802A2102E30089F0FA /* View */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		044CDE802A2102E30089F0FA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				044CDE842A2105540089F0FA /* FavoriteVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		044CDE812A2102E90089F0FA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				044CDE822A2103090089F0FA /* FavoriteViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		04765DBA2A20EAF700D8853A /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				04765DBC2A20EB3900D8853A /* RecipeCoreData.swift */,
+				04765DBE2A20EC6200D8853A /* RecipeCoreDataProtocol.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
 		04C597F12A20973A00712C46 = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				1F5A71BA2A20B0EC00CF8066 /* MyResult.swift */,
+				04765DC02A20EFE500D8853A /* RecipeEntity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,7 +229,7 @@
 		1F5A71B32A20A41600CF8066 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				1F5A71B52A20A4D900CF8066 /* Local */,
+				04765DBA2A20EAF700D8853A /* Local */,
 				1F5A71B42A20A42100CF8066 /* Network */,
 			);
 			path = Services;
@@ -199,16 +244,10 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		1F5A71B52A20A4D900CF8066 /* Local */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Local;
-			sourceTree = "<group>";
-		};
 		1F5A71BC2A20D09200CF8066 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				044CDE7F2A2102D40089F0FA /* Favorite */,
 				1F5A71BD2A20D1F600CF8066 /* Home */,
 			);
 			path = Modules;
@@ -504,11 +543,16 @@
 				04C598002A20973A00712C46 /* SceneDelegate.swift in Sources */,
 				048466452A20AD64009BFB3E /* HomeVC.swift in Sources */,
 				04C598082A20973A00712C46 /* Food_Recipes.xcdatamodeld in Sources */,
+				044CDE852A2105540089F0FA /* FavoriteVC.swift in Sources */,
+				04765DBF2A20EC6200D8853A /* RecipeCoreDataProtocol.swift in Sources */,
 				048466402A20A7CA009BFB3E /* CategoryCell.swift in Sources */,
+				04765DBD2A20EB3900D8853A /* RecipeCoreData.swift in Sources */,
 				1F5A71BB2A20B0EC00CF8066 /* MyResult.swift in Sources */,
 				04CE47E32A20DF4000700DB6 /* Utlites.swift in Sources */,
 				04C598082A20973A00712C46 /* Food_Recipes.xcdatamodeld in Sources */,
+				04765DC12A20EFE500D8853A /* RecipeEntity.swift in Sources */,
 				1F5A71B92A20A50500CF8066 /* NetworkService.swift in Sources */,
+				044CDE832A2103090089F0FA /* FavoriteViewModel.swift in Sources */,
 				1F5A71B72A20A4F600CF8066 /* NetworkServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
