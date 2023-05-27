@@ -38,6 +38,7 @@ class RecipieCoreData:RecipeCoreDataProtocol{
 
         do{
             try manager.save()
+            print("meal : \(recipe)")
             print("Recipe Saved!")
         }catch let error{
             print(error.localizedDescription)
