@@ -8,7 +8,16 @@
 import Foundation
 import Alamofire
 
-class NetworkerService :NetworkServiceProtocol{
+class NetworkerService :NetworkServiceProtocol,DataProviderProtocol{
+    var res = MyResult(count: 0, results: [])
+  
+    func fetchData(teamUrl: String) -> MyResult{
+        self.fetchData(url: teamUrl) { [weak self] (root: MyResult?, err) in
+            guard let root = root else { return }
+            self?.res = root
+        }
+        return res
+    }
     
 //    let headers = [
 //        "X-RapidAPI-Key": "82ebfc0d39mshe9944f193412711p1185dejsn8af599cc676c",

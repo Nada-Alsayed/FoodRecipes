@@ -10,7 +10,8 @@ import Foundation
 class HomeViewModel {
     var categoryNames = ["Popular","Breakfast","Launch","Dinner","Dessert"]
     var categoryImages = ["middle_eastern","breakfast","lunch","dinner","desserts"]
-    
+    var repo: DataProviderProtocol!
+ 
     var bindResultToView : (()->()) = {}
       
       var res = MyResult(count: 0, results: []) {
@@ -25,6 +26,7 @@ class HomeViewModel {
     
     init(apiFetchHandler: NetworkServiceProtocol!) {
            self.apiFetchHandler = apiFetchHandler
+           self.repo = LocalService()//apiFetchHandler as? any DataProviderProtocol
            self.category = categoryImages[0]
        }
     
@@ -33,12 +35,14 @@ class HomeViewModel {
        }
     
     func getData(){
-        apiFetchHandler.fetchData(url: teamURL()) { [weak self] (root: MyResult?, err) in
-            guard let root = root else { return }
-            self?.res = root
-          //  print("image URL :\(self?.res.results?[1].thumbnailURL)")
-        }
+        self.res = repo.fetchData(teamUrl: teamURL())
+    }
+//    func getData(){
+//        apiFetchHandler.fetchData(url: teamURL()) { [weak self] (root: MyResult?, err) in
+//            guard let root = root else { return }
+//            self?.res = root
+//          //  print("image URL :\(self?.res.results?[1].thumbnailURL)")
+//        }
         
      
     }
-}
