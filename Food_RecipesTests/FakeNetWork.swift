@@ -22,7 +22,7 @@ class FakeNetwork {
 
 extension FakeNetwork {
     func loadData(urls:String, handler:@escaping ([String:Any]?, Error?)->Void){
-        if returnError == true{
+        if returnError {
             handler(nil,ResponseWithError.responseError)
         }else{
             handler(fakeData,nil)

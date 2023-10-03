@@ -16,7 +16,7 @@ final class Mocking: XCTestCase {
     
     func testLoadDataFake(){
         fakeNetwork.loadData(urls: "") { res , err  in
-            if (err != nil ) == true {
+            if (err == nil ) {
                 XCTAssertNotNil(res)
             }else{
                 XCTFail()
