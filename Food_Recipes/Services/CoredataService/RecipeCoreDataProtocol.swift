@@ -12,5 +12,5 @@ protocol RecipeCoreDataProtocol {
     func insertFavRecipe(recipeInserted: RecipeEntity)
     func getStoredRecipe() -> [RecipeEntity]
     func deleteFavRecipe(recipe : RecipeEntity)
-    func isRecipeExist(recipe : RecipeEntity) -> Bool
+    func isRecipeExist(recipeID:Int) -> Bool 
 }

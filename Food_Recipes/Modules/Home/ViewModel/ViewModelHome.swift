@@ -19,10 +19,10 @@ class HomeViewModel {
           }
       }
     
+
     private var apiFetchHandler : NetworkServiceProtocol!
     var category : String
-    
-    
+        
     init(apiFetchHandler: NetworkServiceProtocol!) {
            self.apiFetchHandler = apiFetchHandler
            self.category = categoryImages[0]

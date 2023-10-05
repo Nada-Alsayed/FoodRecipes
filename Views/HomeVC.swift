@@ -18,6 +18,10 @@ class HomeVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var inidicator: UIActivityIndicatorView!
      var isInitialBool = false
+    
+    override func viewWillAppear(_ animated: Bool) {
+        myTable.reloadData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         isInitialBool = true
@@ -64,7 +68,12 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource ,UITableV
         return CGFloat(174)
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let details = self.storyboard?.instantiateViewController(withIdentifier: "details") as! DetailsVC
+        details.modalPresentationStyle = .fullScreen
+        details.receipe = arrayOfReciebes[indexPath.row]
+        present(details,animated: true)
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellRecipe", for: indexPath) as!CellRecipe
        
@@ -72,7 +81,13 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource ,UITableV
         cell.imgBG.layer.cornerRadius = 10
         cell.imgBG?.kf.setImage(with:URL(string: arrayOfReciebes[indexPath.row].thumbnailURL ?? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB3yIFU8Dx5iqV6fxsmrxvzkDYbgQaxIp19SRyR9DQ&s") )
         
-        cell.imgLike.image = UIImage(named: "imgLike")
+        if(favViewModel.isRecipeExist(recipe: arrayOfReciebes[indexPath.row].id ?? 0) == true)
+        {
+            cell.imgLike.image = UIImage(named: "like-2")
+            
+        }else{
+            cell.imgLike.image = UIImage(named: "imgLike")
+        }
         cell.labelRecipeName.text = arrayOfReciebes[indexPath.row].name
         cell.labelChefName.text = "\(arrayOfReciebes[indexPath.row].credits?[0].name ?? "")"
         cell.labelPike.text = arrayOfReciebes[indexPath.row].show?.name
@@ -92,24 +107,22 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource ,UITableV
             if let selectedCell = favoritedCellImage.superview?.superview as? CellRecipe{
                   recipeEntity = RecipeEntity(criditName: selectedCell.cellReciepe.credits?[0].name ,recipeImg: selectedCell.cellReciepe.thumbnailURL,recipeName: selectedCell.cellReciepe.name,recipeUrl: selectedCell.cellReciepe.videoURL,showName: selectedCell.cellReciepe.show?.name,yeild: selectedCell.cellReciepe.yields,id: selectedCell.cellReciepe.id)
                  
-                if(favViewModel.isRecipeExist(recipe: recipeEntity) == true)
-                {
-                    let alert = UIAlertController(title: "Alert", message: "This Item already Saved", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                    present(alert, animated: true, completion: nil)
-                    print("Already saved")
-                    
+                if(favViewModel.isRecipeExist(recipe: recipeEntity.id ?? 0)==true){
+
+                    let alert = UIAlertController(title: "Deletion Alert", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {_ in
+                        self.favViewModel.deleteFavRecipe(recipe: self.recipeEntity)
+                        favoritedCellImage.image  = UIImage(named: "imgLike")
+                    }))
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                       present(alert, animated: true, completion: nil)
+                            
                 }else{
-                    favViewModel.insertFavRecipe(recipe: recipeEntity)
-                    selectedCell.imgLike.image = UIImage(named: "like-2")
+                    favViewModel.insertFavRecipe(recipe:recipeEntity)
+                    favoritedCellImage.image = UIImage(named: "like-2")
                 }
-                
-               
-                
             }
         }
-        
-     
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

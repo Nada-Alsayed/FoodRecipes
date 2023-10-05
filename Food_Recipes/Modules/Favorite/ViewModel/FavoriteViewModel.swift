@@ -33,8 +33,8 @@ class FavoriteViewModel {
         coreData.insertFavRecipe(recipeInserted: recipe)
     }
     
-    func isRecipeExist(recipe:RecipeEntity)->Bool{
-        return coreData.isRecipeExist(recipe: recipe)
+    func isRecipeExist(recipe:Int)->Bool{
+        return coreData.isRecipeExist(recipeID: recipe)
     }
     
 }

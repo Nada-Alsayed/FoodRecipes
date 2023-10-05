@@ -19,7 +19,7 @@ class MyResult: Codable {
 }
 
 // MARK: - Result
-class Reciepe: Codable {
+struct Reciepe: Codable {
     let show: Show?
     let sections: [Section]?
     let tags: [Tag]?
@@ -39,25 +39,12 @@ class Reciepe: Codable {
         case name
         case thumbnailURL = "thumbnail_url"
         case numServings = "num_servings"
-        case instructions, yields
-        case originalVideoURL
+        case instructions
+        case yields
+        case originalVideoURL = "original_video_url"
         case id
     }
-
-    init(show: Show?, sections: [Section]?, tags: [Tag]?, credits: [Credit]?, videoURL: String?, name: String?, thumbnailURL: String?, numServings: Int?, instructions: [Instruction]?, yields: String?, originalVideoURL: String?, id: Int?) {
-        self.show = show
-        self.sections = sections
-        self.tags = tags
-        self.credits = credits
-        self.videoURL = videoURL
-        self.name = name
-        self.thumbnailURL = thumbnailURL
-        self.numServings = numServings
-        self.instructions = instructions
-        self.yields = yields
-        self.originalVideoURL = originalVideoURL
-        self.id = id
-    }
+    
 
 }
 
@@ -83,7 +70,7 @@ class Instruction: Codable {
         case appliance
         case endTime
         case temperature, id, position
-        case displayText
+        case displayText = "display_text"
     }
 
     init(startTime: Int?, appliance: String?, endTime: Int?, temperature: Int?, id: Int?, position: Int?, displayText: String?) {
@@ -118,7 +105,7 @@ class Component: Codable {
     let measurements: [Measurement]?
 
     enum CodingKeys: String, CodingKey {
-        case rawText
+        case rawText = "raw_text"
         case extraComment
         case ingredient, id, position, measurements
     }

@@ -98,10 +98,10 @@ class RecipieCoreData:RecipeCoreDataProtocol{
         }
     }
     
-    func isRecipeExist(recipe:RecipeEntity) -> Bool {
+    func isRecipeExist(recipeID:Int) -> Bool {
         
         let fetch = NSFetchRequest<NSManagedObject>(entityName: "FavReciepe")
-        let predicate = NSPredicate(format: "id == %i", recipe.id ?? 0)
+        let predicate = NSPredicate(format: "id == %i", recipeID )
 
         fetch.predicate = predicate
         
