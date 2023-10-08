@@ -149,7 +149,8 @@ class DetailsVC: UIViewController {
                 let section = NSCollectionLayoutSection(group: group)
                 section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15
                 , bottom: 0, trailing: 15)
-       
+                section.boundarySupplementaryItems = [self.supplementryHeaderItem()]
+            section.supplementariesFollowContentInsets = false
                 return section
        }
     func similariesSection()-> NSCollectionLayoutSection {
@@ -158,38 +159,47 @@ class DetailsVC: UIViewController {
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.7), heightDimension: .absolute(170))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
-        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing:8)
+        group.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 0, trailing:8)
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 0)
+        section.boundarySupplementaryItems = [self.supplementryHeaderItem()]
+        section.supplementariesFollowContentInsets = false
         return section
-       }
+    }
 
+    private func supplementryHeaderItem()-> NSCollectionLayoutBoundarySupplementaryItem{
+        .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(60)),elementKind: UICollectionView.elementKindSectionHeader,alignment: .top)
+    }
 }
 
 extension DetailsVC : UICollectionViewDelegate,UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let myHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeaderView", for: indexPath) as! SectionHeaderView
-        
-        // Determine the section and set the header text accordingly
-        print("Header 00000")
-        switch indexPath.section {
-        case 0:
-            myHeader.headerLabel.text = "Ingredients"
-        case 1:
-            myHeader.headerLabel.text = "Instructions"
-        default:
-            myHeader.headerLabel.text = "Similarities"
+        switch kind{
+        case UICollectionView.elementKindSectionHeader :
+            let myHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeaderView", for: indexPath) as! SectionHeaderView
+            
+            // Determine the section and set the header text accordingly
+            print("Header 00000")
+            switch indexPath.section {
+            case 0:
+                myHeader.headerLabel.text = "Ingredients"
+            case 1:
+                myHeader.headerLabel.text = "Instructions"
+            default:
+                myHeader.headerLabel.text = "Similarities"
+            }
+            
+            return myHeader
+        default: return UICollectionReusableView()
         }
-        
-        return myHeader
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        print("header size")
-        
-        return CGSize(width: collectionView.frame.width, height: 50) // Adjust the height as needed
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+//        print("header size")
+//
+//        return CGSize(width: collectionView.frame.width, height: 50) // Adjust the height as needed
+//    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let details = self.storyboard?.instantiateViewController(withIdentifier: "details") as! DetailsVC
         details.modalPresentationStyle = .fullScreen

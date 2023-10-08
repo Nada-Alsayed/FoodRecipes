@@ -107,17 +107,17 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHY-XB-B5R">
-                                            <rect key="frame" x="10" y="6" width="373" height="38"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            <rect key="frame" x="8" y="6" width="377" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                             <color key="textColor" red="0.68173366790000001" green="0.46936208010000002" blue="0.25270226600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="bHY-XB-B5R" firstAttribute="top" secondItem="Yp4-UB-RKu" secondAttribute="top" constant="6" id="44F-TJ-UGa"/>
-                                        <constraint firstAttribute="trailing" secondItem="bHY-XB-B5R" secondAttribute="trailing" constant="10" id="FcO-80-XTh"/>
-                                        <constraint firstAttribute="bottom" secondItem="bHY-XB-B5R" secondAttribute="bottom" constant="6" id="urs-tF-Upf"/>
-                                        <constraint firstItem="bHY-XB-B5R" firstAttribute="leading" secondItem="Yp4-UB-RKu" secondAttribute="leading" constant="10" id="xdh-5V-ynF"/>
+                                        <constraint firstAttribute="trailing" secondItem="bHY-XB-B5R" secondAttribute="trailing" constant="8" id="FcO-80-XTh"/>
+                                        <constraint firstAttribute="bottom" secondItem="bHY-XB-B5R" secondAttribute="bottom" id="urs-tF-Upf"/>
+                                        <constraint firstItem="bHY-XB-B5R" firstAttribute="leading" secondItem="Yp4-UB-RKu" secondAttribute="leading" constant="8" id="xdh-5V-ynF"/>
                                     </constraints>
                                     <connections>
                                         <outlet property="headerLabel" destination="bHY-XB-B5R" id="Jak-jK-0zZ"/>

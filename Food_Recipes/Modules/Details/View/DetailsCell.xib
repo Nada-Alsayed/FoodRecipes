@@ -20,15 +20,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="256" verticalHuggingPriority="256" image="Vector-3" translatesAutoresizingMaskIntoConstraints="NO" id="iUp-ku-2oQ">
-                                <rect key="frame" x="0.0" y="0.0" width="16" height="13"/>
+                                <rect key="frame" x="0.0" y="0.0" width="16" height="50"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="748" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWX-J4-WjI">
-                                <rect key="frame" x="22" y="0.0" width="178" height="20.333333333333332"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="22" y="0.0" width="178" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="LWX-J4-WjI" firstAttribute="leading" secondItem="iUp-ku-2oQ" secondAttribute="trailing" constant="6" id="15f-hJ-0nn"/>
+                            <constraint firstAttribute="trailing" secondItem="LWX-J4-WjI" secondAttribute="trailing" id="3fc-mg-X8g"/>
+                            <constraint firstAttribute="bottom" secondItem="LWX-J4-WjI" secondAttribute="bottom" id="5AY-Ss-nog"/>
+                            <constraint firstItem="iUp-ku-2oQ" firstAttribute="leading" secondItem="qko-wX-gxQ" secondAttribute="leading" id="CAg-0v-HWZ"/>
+                            <constraint firstAttribute="bottom" secondItem="iUp-ku-2oQ" secondAttribute="bottom" id="E2u-Ej-7bI"/>
+                            <constraint firstItem="iUp-ku-2oQ" firstAttribute="top" secondItem="qko-wX-gxQ" secondAttribute="top" id="dRC-4F-9TH"/>
+                            <constraint firstItem="LWX-J4-WjI" firstAttribute="top" secondItem="qko-wX-gxQ" secondAttribute="top" id="yPf-ok-xqx"/>
+                        </constraints>
                     </stackView>
                 </subviews>
             </view>
