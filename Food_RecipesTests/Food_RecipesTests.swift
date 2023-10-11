@@ -17,20 +17,24 @@ final class Food_RecipesTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testLoadDataFromAPI(){
+        func url(string :String)->String{
+            return "https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=\(string)"
+           }
+        let expectation = expectation(description: "wait for api")
+        NetworkerService().fetchData(url: url(string: "breakfast")) { [weak self] (root: MyResult?, err) in
+            if let root = root {
+                XCTAssert(root.results?.count ?? 0 > 0)
+                print("Recipe Name : \(root.results?[0].name ?? "")")
+                expectation.fulfill()
+            }
+            else{
+               XCTFail()
+                expectation.fulfill()
+            }
         }
+        waitForExpectations(timeout: 7)
     }
 
 }
