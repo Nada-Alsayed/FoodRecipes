@@ -36,9 +36,9 @@ class DetailsVTwoVC: UIViewController {
     var homeViewModel = HomeViewModel(apiFetchHandler: NetworkerService())
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tableIngrediants.addObserver(self, forKeyPath: "ingrediantsContentSize",options: .new , context: nil)
+        tableIngrediants.addObserver(self, forKeyPath: "contentSize",options: .new , context: nil)
         
-        self.tableInstructions.addObserver(self, forKeyPath: "instructionsContentSize",options: .new , context: nil)
+        tableInstructions.addObserver(self, forKeyPath: "contentSize",options: .new , context: nil)
         
         if(favViewModel?.isRecipeExist(recipe: receipe?.id ?? 0)==true){
             favBtn.image = UIImage(named: "like-2")
@@ -47,29 +47,28 @@ class DetailsVTwoVC: UIViewController {
         }
     }
     override func viewWillDisappear(_ animated: Bool) {
-        self.tableIngrediants.removeObserver(self, forKeyPath: "ingrediantsContentSize")
-        self.tableInstructions.removeObserver(self, forKeyPath: "instructionsContentSize")
+        self.tableIngrediants.removeObserver(self, forKeyPath: "contentSize")
+        self.tableInstructions.removeObserver(self, forKeyPath: "contentSize")
     }
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == "ingrediantsContentSize"
-        {
-            if let newvalue = change?[.newKey]{
-                let newsize = newvalue as! CGSize
-                self.heightIngrediants.constant = newsize.height
+        print("Hello")
+        if keyPath == "contentSize" {
+                if object as? UITableView == tableIngrediants {
+                    if let newvalue = change?[.newKey] as? CGSize {
+                        heightIngrediants.constant = newvalue.height 
+                    }
+                } else if object as? UITableView == tableInstructions {
+                    if let newvalue = change?[.newKey] as? CGSize {
+                        heightInstructions.constant = newvalue.height
+                    }
+                }
             }
-        }
-        if keyPath == "instructionsContentSize"{
-            if let newvalue = change?[.newKey]{
-                let newsize = newvalue as! CGSize
-                self.heightInstructions.constant = newsize.height
-            }
-        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionSimilar.delegate = self
-        collectionSimilar.dataSource = self
-        
+//        collectionSimilar.delegate = self
+//        collectionSimilar.dataSource = self
+
         tableIngrediants.delegate = self
         tableIngrediants.dataSource = self
         
@@ -86,10 +85,6 @@ class DetailsVTwoVC: UIViewController {
        
         tableIngrediants.register(UINib(nibName: "DetailsTableCell", bundle: nil), forCellReuseIdentifier: "DetailsTableCell")
         tableInstructions.register(UINib(nibName: "DetailsTableCell", bundle: nil), forCellReuseIdentifier: "DetailsTableCell")
-       
-       // let customLayout = CustomCollectionViewLayout()
-    //    collectionSimilar.collectionViewLayout = customLayout
-
         
         // Do any additional setup after loading the view.
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backTapped(_:)))
@@ -115,10 +110,13 @@ class DetailsVTwoVC: UIViewController {
             }
         }
         viewModel.getData(url:mySimilarURL)
+        
     }
+    
     @objc func backTapped(_ sender : UITapGestureRecognizer ) {
         dismiss(animated: true)
     }
+    
     @objc func videoTapped(_ sender : UITapGestureRecognizer ){
         let video = self.storyboard?.instantiateViewController(withIdentifier: "myVideoVC") as! VideoVC
         video.modalPresentationStyle = .fullScreen
@@ -158,7 +156,7 @@ extension DetailsVTwoVC:UICollectionViewDelegate,UICollectionViewDataSource,UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionSimilar.dequeueReusableCell(withReuseIdentifier: "CollectionCellRecipe", for: indexPath) as! CollectionCellRecipe
+        let cell = collectionSimilar.dequeueReusableCell(withReuseIdentifier: "CollectionCellRecipe", for: indexPath) as!CollectionCellRecipe
         cell.myImgBG.layer.cornerRadius = 10
         cell.myImgBG?.kf.setImage(with:URL(string: similarites?[indexPath.row].thumbnailURL ?? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB3yIFU8Dx5iqV6fxsmrxvzkDYbgQaxIp19SRyR9DQ&s") )
         if(favViewModel?.isRecipeExist(recipe: similarites?[indexPath.row].id ?? 0) == true){
@@ -171,6 +169,7 @@ extension DetailsVTwoVC:UICollectionViewDelegate,UICollectionViewDataSource,UICo
         cell.labelServings.text = similarites?[indexPath.row].yields ?? "Servings:0"
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let details = self.storyboard?.instantiateViewController(withIdentifier: "details2") as! DetailsVTwoVC
         details.modalPresentationStyle = .fullScreen
@@ -178,36 +177,37 @@ extension DetailsVTwoVC:UICollectionViewDelegate,UICollectionViewDataSource,UICo
         present(details,animated: true)
     }
     
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        print("ReSized")
+//           return CGSize(width: 270, height: 180)
+//       }
+//       
+//       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//           return 8.0 // You can adjust this value if you want space between items
+//       }
+//       
+//       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//           return 10.0 // You can adjust this value if you want space between rows
+//       }
+//       
+//       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, scrollDirectionForSectionAt section: Int) -> UICollectionView.ScrollDirection {
+//           return .horizontal
+//       }
 }
 
 extension DetailsVTwoVC:UITableViewDelegate,UITableViewDataSource{
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.tag == 0{
             return receipe?.sections?.count ?? 0
-        }else{
+        }else if tableView.tag == 1{
             return receipe?.instructions?.count ?? 0
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView.tag == 1{
-            let cell = tableInstructions.dequeueReusableCell(withIdentifier: "DetailsTableCell", for: indexPath) as! DetailsTableCell
-            cell.myLabel.text = receipe?.instructions?[indexPath.row].displayText
-            return cell
-        }else if tableView.tag == 0{
-            let cell = tableIngrediants.dequeueReusableCell(withIdentifier: "DetailsTableCell", for: indexPath) as! DetailsTableCell
-            if receipe?.sections?.count != 0{
-                cell.myLabel.text = receipe?.sections?[0].components?[indexPath.row].rawText
-            }else{
-                cell.myLabel.text = "No ingrediants available now"
-            }
-            return cell
         }else{
-            return UITableViewCell()
+            return 0
         }
     }
     
-    private func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) -> CGFloat {
         if tableView.tag == 1{
             return UITableView.automaticDimension
         }else if tableView.tag == 0{
@@ -226,7 +226,31 @@ extension DetailsVTwoVC:UITableViewDelegate,UITableViewDataSource{
             return UITableView.automaticDimension
         }
     }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if tableView.tag == 1{
+            let cell = tableInstructions.dequeueReusableCell(withIdentifier: "DetailsTableCell", for: indexPath) as! DetailsTableCell
+            cell.myLabel.text = receipe?.instructions?[indexPath.row].displayText
+            cell.myLabel.numberOfLines = 0 // Allow multiline text
+            //tableView.reloadData()
+            return cell
+        }else if tableView.tag == 0{
+            let cell = tableIngrediants.dequeueReusableCell(withIdentifier: "DetailsTableCell", for: indexPath) as! DetailsTableCell
+            if receipe?.sections?.count != 0{
+                cell.myLabel.text = receipe?.sections?[0].components?[indexPath.row].rawText
+            }else{
+                cell.myLabel.text = "No ingrediants available now"
+            }
+            cell.myLabel.numberOfLines = 0 // Allow multiline text
+           // tableView.reloadData()
+            return cell
+        }else{
+            return UITableViewCell()
+        }
+    }
+   
 }
+
+
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return 60 // Adjust the value to set the desired height
 //    }
