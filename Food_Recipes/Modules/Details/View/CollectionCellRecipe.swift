@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CollectionCellRecipe: UICollectionViewCell {
+class CollectionCellRecipe: UICollectionViewCell{
     @IBOutlet weak var imgLike: UIImageView!
     
     @IBOutlet weak var labelRecipeName: UILabel!
@@ -22,6 +22,7 @@ class CollectionCellRecipe: UICollectionViewCell {
 
     //var onDeleteTapped: (() -> Void)?
     
+
     override func awakeFromNib() {
         super.awakeFromNib()
                let gradientLayer = CAGradientLayer()

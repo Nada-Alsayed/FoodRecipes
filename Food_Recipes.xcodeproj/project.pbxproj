@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0404CE682AD619020031DB2D /* DetailsVTwoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0404CE672AD619020031DB2D /* DetailsVTwoVC.swift */; };
+		0404CE6C2AD619460031DB2D /* DetailsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0404CE6A2AD619460031DB2D /* DetailsTableCell.swift */; };
+		0404CE6D2AD619460031DB2D /* DetailsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0404CE6B2AD619460031DB2D /* DetailsTableCell.xib */; };
 		0406B4A52A21140000833AF6 /* Mocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0406B4A42A21140000833AF6 /* Mocking.swift */; };
 		0406B4A72A21141800833AF6 /* FakeNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0406B4A62A21141800833AF6 /* FakeNetWork.swift */; };
 		0454E0E72ACE305B00F88652 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0454E0E62ACE305B00F88652 /* SectionHeaderView.swift */; };
@@ -66,6 +69,9 @@
 
 /* Begin PBXFileReference section */
 		014B5857F81F784B528F4C3C /* Pods-Food_Recipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food_Recipes.release.xcconfig"; path = "Target Support Files/Pods-Food_Recipes/Pods-Food_Recipes.release.xcconfig"; sourceTree = "<group>"; };
+		0404CE672AD619020031DB2D /* DetailsVTwoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVTwoVC.swift; sourceTree = "<group>"; };
+		0404CE6A2AD619460031DB2D /* DetailsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableCell.swift; sourceTree = "<group>"; };
+		0404CE6B2AD619460031DB2D /* DetailsTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsTableCell.xib; sourceTree = "<group>"; };
 		0406B4A42A21140000833AF6 /* Mocking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocking.swift; sourceTree = "<group>"; };
 		0406B4A62A21141800833AF6 /* FakeNetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNetWork.swift; sourceTree = "<group>"; };
 		0454E0E62ACE305B00F88652 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
@@ -143,6 +149,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0404CE652AD618A50031DB2D /* DetailsVTwo */ = {
+			isa = PBXGroup;
+			children = (
+				0404CE662AD618C60031DB2D /* View */,
+			);
+			path = DetailsVTwo;
+			sourceTree = "<group>";
+		};
+		0404CE662AD618C60031DB2D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0404CE672AD619020031DB2D /* DetailsVTwoVC.swift */,
+				0404CE6A2AD619460031DB2D /* DetailsTableCell.swift */,
+				0404CE6B2AD619460031DB2D /* DetailsTableCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		0454E0E82ACE4C4100F88652 /* VideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +311,7 @@
 		1F5A71BC2A20D09200CF8066 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0404CE652AD618A50031DB2D /* DetailsVTwo */,
 				0454E0E82ACE4C4100F88652 /* VideoPlayer */,
 				0485F4782ACC322500E978BE /* Details */,
 				CC179F692A22114A0079FD85 /* Cells */,
@@ -502,6 +527,7 @@
 				04AAEF192A20E30F00965510 /* CategoryCell.xib in Resources */,
 				04AAEF212A20E6D000965510 /* CellRecipe.xib in Resources */,
 				04C5980D2A20973C00712C46 /* LaunchScreen.storyboard in Resources */,
+				0404CE6D2AD619460031DB2D /* DetailsTableCell.xib in Resources */,
 				04C598052A20973A00712C46 /* Main.storyboard in Resources */,
 				048B3A2E2ACD1DFA00A42287 /* CollectionCellRecipe.xib in Resources */,
 				0485F4822ACC456800E978BE /* DetailsCell.xib in Resources */,
@@ -634,6 +660,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0454E0EA2ACE4C7100F88652 /* VideoVC.swift in Sources */,
+				0404CE682AD619020031DB2D /* DetailsVTwoVC.swift in Sources */,
 				0485F4812ACC456800E978BE /* DetailsCell.swift in Sources */,
 				04C597FE2A20973A00712C46 /* AppDelegate.swift in Sources */,
 				04C598002A20973A00712C46 /* SceneDelegate.swift in Sources */,
@@ -643,6 +670,7 @@
 				04AAEF202A20E6D000965510 /* CellRecipe.swift in Sources */,
 				1F5A71BB2A20B0EC00CF8066 /* MyResult.swift in Sources */,
 				04AAEF1D2A20E4B000965510 /* ViewController.swift in Sources */,
+				0404CE6C2AD619460031DB2D /* DetailsTableCell.swift in Sources */,
 				0454E0E72ACE305B00F88652 /* SectionHeaderView.swift in Sources */,
 				048B3A2D2ACD1DFA00A42287 /* CollectionCellRecipe.swift in Sources */,
 				04CE47E32A20DF4000700DB6 /* Utlites.swift in Sources */,

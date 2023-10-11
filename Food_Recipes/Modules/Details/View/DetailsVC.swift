@@ -8,7 +8,12 @@ import Foundation
 import UIKit
 
 class DetailsVC: UIViewController {
-
+    
+    @IBOutlet weak var collectionFlowLayout: UICollectionViewFlowLayout!{
+        didSet {
+            collectionFlowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+            }
+    }
     @IBOutlet weak var myCollection: UICollectionView!
     @IBOutlet weak var backgImg: UIImageView!
     @IBOutlet weak var videoBtn: UIImageView!
@@ -41,7 +46,7 @@ class DetailsVC: UIViewController {
         myCollection.dataSource = self
         setPageHeader()
         favViewModel = FavoriteViewModel(coreData: RecipieCoreData.sharedInstance)
-
+        
         myCollection.register(UINib(nibName: "DetailsCell", bundle: nil), forCellWithReuseIdentifier: "DetailsCell")
         myCollection.register(UINib(nibName: "CollectionCellRecipe", bundle: nil), forCellWithReuseIdentifier: "CollectionCellRecipe")
        
@@ -56,6 +61,7 @@ class DetailsVC: UIViewController {
             }
         }
         myCollection.setCollectionViewLayout(layout, animated: true)
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backTapped(_:)))
         backImg.isUserInteractionEnabled = true
         backImg.addGestureRecognizer(tapGesture)
@@ -68,19 +74,6 @@ class DetailsVC: UIViewController {
         videoBtn.isUserInteractionEnabled = true
         videoBtn.addGestureRecognizer(videoTapGesture)
        
-//        homeViewModel.bindResultToView = { [weak self] in
-//            self?.arrayOfRecipes = self?.homeViewModel.res.results ?? []
-//            guard let x = self?.arrayOfRecipes else{return}
-//            for item in x {
-//                if(item.id == self?.recipeID){
-//                    self?.receipe = item
-//                    self?.setPageHeader()
-//                    break
-//                }
-//            }
-//        }
-//        homeViewModel.getData()
-        
         guard let id = receipe?.id else {
             return
         }
@@ -98,12 +91,10 @@ class DetailsVC: UIViewController {
         dismiss(animated: true)
     }
     @objc func videoTapped(_ sender : UITapGestureRecognizer ){
-        //print("moved")
         let video = self.storyboard?.instantiateViewController(withIdentifier: "myVideoVC") as! VideoVC
         video.modalPresentationStyle = .fullScreen
         video.videoRecipe = receipe
         present(video,animated: true)
-       // print("moved")
     }
     
     func setPageHeader(){
@@ -111,12 +102,9 @@ class DetailsVC: UIViewController {
         mealNameLabel.text = receipe?.name ?? ""
         servingsLabel.text = receipe?.yields ?? "Servings:0"
         info.text = receipe?.show?.name ?? ""
-       // print("text1111\(receipe?.instructions?[0].displayText)")
-
     }
     
     @objc func loveTapped(_ sender : UITapGestureRecognizer ) {
-        //print("Imagettttttabe")
         let recipeEntity = RecipeEntity(criditName: receipe?.credits?[0].name ,recipeImg: receipe?.thumbnailURL,recipeName: receipe?.name,recipeUrl: receipe?.videoURL,showName: receipe?.show?.name,yeild: receipe?.yields,id: receipe?.id)
         if(favViewModel?.isRecipeExist(recipe: receipe?.id ?? 0)==true){
 
@@ -135,23 +123,24 @@ class DetailsVC: UIViewController {
     }
         
     func ingradiantsSection()-> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1)
-                , heightDimension: .fractionalHeight(1))
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1)
-                , heightDimension: .absolute(50))
-                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize
-                , subitems: [item])
-                group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0
-                , bottom: 0, trailing: 0)
-                
-                let section = NSCollectionLayoutSection(group: group)
-                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15
-                , bottom: 0, trailing: 15)
-                section.boundarySupplementaryItems = [self.supplementryHeaderItem()]
-            section.supplementariesFollowContentInsets = false
-                return section
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        // Dynamic group size based on the cell content
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .fractionalHeight(0.2) // Initial estimated height, you can adjust it as needed
+        )
+
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+        group.contentInsets = NSDirectionalEdgeInsets(top: 6, leading: 0, bottom: 6, trailing: 0)
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 6, leading: 8, bottom: 0, trailing: 8)
+        section.boundarySupplementaryItems = [self.supplementryHeaderItem()]
+        section.supplementariesFollowContentInsets = false
+
+        return section
        }
     func similariesSection()-> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
@@ -169,11 +158,11 @@ class DetailsVC: UIViewController {
     }
 
     private func supplementryHeaderItem()-> NSCollectionLayoutBoundarySupplementaryItem{
-        .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(60)),elementKind: UICollectionView.elementKindSectionHeader,alignment: .top)
+        .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(30)),elementKind: UICollectionView.elementKindSectionHeader,alignment: .top)
     }
 }
 
-extension DetailsVC : UICollectionViewDelegate,UICollectionViewDataSource {
+extension DetailsVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout  {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind{
@@ -195,11 +184,7 @@ extension DetailsVC : UICollectionViewDelegate,UICollectionViewDataSource {
         default: return UICollectionReusableView()
         }
     }
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        print("header size")
-//
-//        return CGSize(width: collectionView.frame.width, height: 50) // Adjust the height as needed
-//    }
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let details = self.storyboard?.instantiateViewController(withIdentifier: "details") as! DetailsVC
         details.modalPresentationStyle = .fullScreen
@@ -235,59 +220,19 @@ extension DetailsVC : UICollectionViewDelegate,UICollectionViewDataSource {
             cell.labelPike.text = similarites?[indexPath.row].show?.name
             cell.labelServings.text = similarites?[indexPath.row].yields ?? "Servings:0"
             
-            
-           // self.deleteItem(at: indexPath.row, myrecipe: self.similarites![indexPath.row]  )
             return cell
         }else if(indexPath.section == 1){
             let cell = myCollection.dequeueReusableCell(withReuseIdentifier: "DetailsCell", for: indexPath) as! DetailsCell
             cell.myText.text = receipe?.instructions?[indexPath.row].displayText
+            cell.maxHeight = myCollection.bounds.height - 6
             return cell
         }else{
             let cell = myCollection.dequeueReusableCell(withReuseIdentifier: "DetailsCell", for: indexPath) as! DetailsCell
             cell.myText.text = receipe?.sections?[0].components?[indexPath.row].rawText
+            cell.maxHeight = myCollection.bounds.height - 6
             return cell
         }
     }
     
 }
 
-//@objc func imageTapped(_ sender : UITapGestureRecognizer ) {
-//    print("Image tapped!")
-//    if let favoritedCellImage = sender.view as? UIImageView {
-//        if let selectedCell = favoritedCellImage.superview?.superview as? CellRecipe{
-//            recipeEntity = RecipeEntity(criditName: selectedCell.cellReciepe.credits?[0].name ,recipeImg: selectedCell.cellReciepe.thumbnailURL,recipeName: selectedCell.cellReciepe.name,recipeUrl: selectedCell.cellReciepe.videoURL,showName: selectedCell.cellReciepe.show?.name,yeild: selectedCell.cellReciepe.yields,id: selectedCell.cellReciepe.id)
-//
-//            if(favViewModel?.isRecipeExist(recipe: recipeEntity.id ?? 0)==true){
-//
-//                let alert = UIAlertController(title: "Deletion Alert", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
-//                alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {_ in
-//                    self.favViewModel?.deleteFavRecipe(recipe: self.recipeEntity)
-//                    favoritedCellImage.image  = UIImage(named: "imgLike")
-//                }))
-//                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-//                present(alert, animated: true, completion: nil)
-//
-//            }else{
-//                favViewModel?.insertFavRecipe(recipe:recipeEntity)
-//                favoritedCellImage.image = UIImage(named: "like-2")
-//            }
-//        }
-//    }
-//}
-//
-//func deleteItem(at index: Int,myrecipe: Reciepe) {
-//    let myrecipeEntity = RecipeEntity(criditName: myrecipe.credits?[0].name ,recipeImg: myrecipe.thumbnailURL,recipeName: myrecipe.name,recipeUrl: myrecipe.videoURL,showName: myrecipe.show?.name,yeild: myrecipe.yields,id: myrecipe.id)
-//
-//    if(favViewModel?.isRecipeExist(recipe: myrecipe.id ?? 0)==true){
-//
-//        let alert = UIAlertController(title: "Deletion Alert", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {_ in
-//            self.favViewModel?.deleteFavRecipe(recipe: myrecipeEntity)
-//        }))
-//        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-//        present(alert, animated: true, completion: nil)
-//
-//    }else{
-//        favViewModel?.insertFavRecipe(recipe:recipeEntity)
-//    }
-//}

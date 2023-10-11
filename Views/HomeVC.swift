@@ -69,7 +69,7 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource ,UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let details = self.storyboard?.instantiateViewController(withIdentifier: "details") as! DetailsVC
+        let details = self.storyboard?.instantiateViewController(withIdentifier: "details2") as! DetailsVTwoVC
         details.modalPresentationStyle = .fullScreen
         details.receipe = arrayOfReciebes[indexPath.row]
         present(details,animated: true)
